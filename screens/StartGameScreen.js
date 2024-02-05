@@ -21,9 +21,9 @@ export default StartGameScreen;
 
 const styles = StyleSheet.create({
   inputContainer: {
-    flex: 1,
-    padding: 16,
     marginTop: 100,
+    marginHorizontal: 24,
+    padding: 16,
     backgroundColor: "#72063c",
     borderRadius: 8,
     elevation: 4,
@@ -35,11 +35,11 @@ const styles = StyleSheet.create({
   numberInput: {
     height: 50,
     width: 50,
-    fontSize: 34,
+    fontSize: 32,
     borderBottomColor: "#ddb52f",
     borderBottomWidth: 2,
-    marginVertical: 8,
     color: "#ddb52f",
+    marginVertical: 8,
     fontWeight: "bold",
     textAlign: "center",
   },
