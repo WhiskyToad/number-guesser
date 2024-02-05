@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     elevation: 4,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
-    shadowRadius,
+    shadowRadius: 6,
     shadowOpacity: 0.25,
   },
   numberInput: {
