@@ -1,4 +1,4 @@
-import { Title, StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import Colors from "../constants/colors";
 
 const Title = ({ children }) => {

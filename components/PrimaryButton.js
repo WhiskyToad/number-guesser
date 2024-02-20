@@ -10,7 +10,7 @@ const PrimaryButton = (props) => {
             ? [styles.buttonInnerContainer, styles.pressed]
             : styles.buttonInnerContainer
         }
-        onPress={() => console.log("pressed")}
+        onPress={props.onPress}
         android_ripple={{ color: Colors.primary600 }}
       >
         <Text style={styles.buttonText}>{props.children}</Text>

@@ -3,7 +3,7 @@ import PrimaryButton from "../components/PrimaryButton";
 import { useState } from "react";
 import Colors from "../constants/colors";
 
-const StartGameScreen = () => {
+const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
 
   const resetInputHandler = () => {
@@ -25,7 +25,7 @@ const StartGameScreen = () => {
       );
       return;
     }
-    console.log("valid");
+    props.setSelectedNumber(enteredValue);
   };
 
   return (
