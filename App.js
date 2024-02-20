@@ -18,7 +18,7 @@ export default function App() {
           {!selectedNumber && (
             <StartGameScreen setSelectedNumber={setSelectedNumber} />
           )}
-          {selectedNumber && <GameScreen />}
+          {selectedNumber && <GameScreen selectedNumber={selectedNumber} />}
         </SafeAreaView>
       </ImageBackground>
     </LinearGradient>
