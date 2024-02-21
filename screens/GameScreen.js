@@ -3,6 +3,8 @@ import Title from "../components/ui/Title";
 import { useState, useEffect } from "react";
 import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
+import Card from "../components/ui/Card";
+import InstructionText from "../components/ui/InstructionText";
 
 const generateRandomNumber = (min, max, exclude) => {
   const randomNum = Math.floor(Math.random() * (max - min) + min);
@@ -21,10 +23,7 @@ const GameScreen = (props) => {
   const [maxBoundary, setMaxBoundary] = useState(100);
 
   useEffect(() => {
-    console.log(currentGuess, props.selectedNumber);
-    console.log(currentGuess == props.selectedNumber);
     if (currentGuess == props.selectedNumber) {
-      console.log("if");
       props.setGameIsOver(true);
     }
   }, [currentGuess, props.selectedNumber, props.setGameIsOver]);
@@ -62,17 +61,23 @@ const GameScreen = (props) => {
     <View style={styles.screen}>
       <Title>Opponent's Guess</Title>
       <NumberContainer>{currentGuess}</NumberContainer>
-      <View>
-        <Text>Higher or lower?</Text>
-        <View>
-          <PrimaryButton onPress={() => nextGuessHandler("lower")}>
-            -
-          </PrimaryButton>
-          <PrimaryButton onPress={() => nextGuessHandler("higher")}>
-            +
-          </PrimaryButton>
+      <Card>
+        <InstructionText style={styles.instructionText}>
+          Higher or lower?
+        </InstructionText>
+        <View style={styles.buttonsContainer}>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={() => nextGuessHandler("lower")}>
+              -
+            </PrimaryButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={() => nextGuessHandler("higher")}>
+              +
+            </PrimaryButton>
+          </View>
         </View>
-      </View>
+      </Card>
       <View></View>
     </View>
   );
@@ -84,5 +89,14 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 24,
+  },
+  instructionText: {
+    marginBottom: 12,
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+  },
+  buttonContainer: {
+    flex: 1,
   },
 });
