@@ -11,6 +11,7 @@ import AppLoading from "expo-app-loading";
 export default function App() {
   const [selectedNumber, setSelectedNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(false);
+  const [totalGuess, setTotalGuess] = useState(0);
 
   const [fontsLoaded] = useFonts({
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
@@ -39,7 +40,12 @@ export default function App() {
               setGameIsOver={setGameIsOver}
             />
           )}
-          {gameIsOver && <GameOverScreen />}
+          {gameIsOver && (
+            <GameOverScreen
+              selectedNumber={selectedNumber}
+              totalGuess={totalGuess}
+            />
+          )}
         </SafeAreaView>
       </ImageBackground>
     </LinearGradient>
