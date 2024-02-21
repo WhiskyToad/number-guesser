@@ -56,6 +56,7 @@ const GameScreen = (props) => {
       );
       setCurrentGuess(newGuess);
     }
+    props.setTotalGuess((total) => (total += 1));
   };
 
   return (
@@ -79,7 +80,6 @@ const GameScreen = (props) => {
           </View>
         </View>
       </Card>
-      <View></View>
     </View>
   );
 };

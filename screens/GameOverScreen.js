@@ -18,7 +18,7 @@ const GameOverScreen = (props) => {
         <Text style={styles.highlight}>{props.totalGuess}</Text> rounds to guess
         the number <Text style={styles.highlight}>{props.selectedNumber}</Text>
       </Text>
-      <PrimaryButton onPress={() => {}}>Start new game</PrimaryButton>
+      <PrimaryButton onPress={props.startNewGame}>Start new game</PrimaryButton>
     </View>
   );
 };

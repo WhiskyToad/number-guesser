@@ -11,12 +11,18 @@ import AppLoading from "expo-app-loading";
 export default function App() {
   const [selectedNumber, setSelectedNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(false);
-  const [totalGuess, setTotalGuess] = useState(0);
+  const [totalGuess, setTotalGuess] = useState(1);
 
   const [fontsLoaded] = useFonts({
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
   });
+
+  const startNewGame = () => {
+    setSelectedNumber(undefined);
+    setGameIsOver(false);
+    setTotalGuess(1);
+  };
 
   if (!fontsLoaded) return <AppLoading />;
   return (
@@ -38,12 +44,14 @@ export default function App() {
             <GameScreen
               selectedNumber={selectedNumber}
               setGameIsOver={setGameIsOver}
+              setTotalGuess={setTotalGuess}
             />
           )}
           {gameIsOver && (
             <GameOverScreen
               selectedNumber={selectedNumber}
               totalGuess={totalGuess}
+              startNewGame={startNewGame}
             />
           )}
         </SafeAreaView>
